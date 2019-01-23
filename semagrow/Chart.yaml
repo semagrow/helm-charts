@@ -1,0 +1,19 @@
+apiVersion: v1
+name: semagrow
+version: 2.0
+appVersion: master
+description: A SPARQL query federator of heterogeneous data sources
+keywords:
+- semagrow
+- rdf
+- graph-database
+- federator
+- sparql
+- linked-data
+home: https://semagrow.github.io
+icon: http://semagrow.github.io/assets/img/logo.png
+sources:
+- https://www.github.com/semagrow/semagrow
+maintainers:
+- name: Giannis Mouchakis
+  email: gmouchakis@iit.demokritos.gr

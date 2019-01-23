@@ -1,0 +1,26 @@
+{{- if .Values.global.semagrow.enabled -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "semagrow.fullname" . }}
+  namespace: {{ $.Release.Namespace }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: {{ template "semagrow.fullname" . }}
+      labels:
+        app: {{ template "semagrow.name" . }}
+        chart: "{{ .Chart.Name }}--{{ .Chart.Version }}"
+        release: "{{ .Release.Name }}"
+        heritage: "{{ .Release.Service }}"
+        component: app
+    spec:
+      containers:
+      - name: semagrow
+        image: {{ .Values.image }}:{{ .Values.imageTag }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        ports:
+        - containerPort: 8080
+{{ toYaml .Values.resources | indent 12 }}
+{{- end }}

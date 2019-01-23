@@ -1,0 +1,16 @@
+
+image: "semagrow/semagrow"
+imageTag: "latest"
+imagePullPolicy: "Always"
+
+global:
+  semagrow:
+    enabled: true
+
+serviceType: ClusterIP
+servicePort: 8080
+
+resources:
+  requests:
+    memory: 128Mi
+    cpu: 100m
